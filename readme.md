@@ -5,7 +5,7 @@ Esta es una simple aplicación de lista de tareas pendientes que te permite agre
 
 ## Funciones
 
-- **Agregar Tarea:** Puedes agregar nuevas tareas a tu lista especificando el nombre de la tarea. La aplicación asignará automáticamente un identificador único a cada tarea.
+- **Agregar Tarea:** Puedes agregar nuevas tareas a tu lista especificando el nombre y descripcion de la tarea. La aplicación asignará automáticamente un identificador único a cada tarea.
 
 - **Eliminar Tarea:** Si has completado una tarea o deseas eliminarla por cualquier motivo, puedes hacerlo proporcionando el identificador de la tarea.
 
@@ -18,11 +18,11 @@ Esta es una simple aplicación de lista de tareas pendientes que te permite agre
 3. Inicialo con: npm run start
 
 ## Rutas
-| (index) |          path          |      methods      | middlewares  |
-| ------- | ---------------------- | ----------------- | ------------ |
-|    0    |    '/api/v1/health'    |     [ 'GET' ]     | [ 'router' ] |
-|    1    |     '/api/v1/task'     | [ 'GET', 'POST' ] | [ 'router' ] |
-|    2    | '/api/v1/task/:taskId' |   [ 'DELETE' ]    | [ 'router' ] |
+|         path          |      methods      |
+|---------------------- | ----------------- |
+|   '/api/v1/health'    |     [ 'GET' ]     |
+|    '/api/v1/task'     | [ 'GET', 'POST' ] |
+| '/api/v1/task/:taskId' |   [ 'DELETE' ]    |
 
 ## to do
 * Agregar pruebas unitarias para cada función del controlador
