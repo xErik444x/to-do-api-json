@@ -16,8 +16,7 @@ router.post('/', function(req, res) {
     const updatedContent = JSON.stringify(data, null, 2); // El tercer argumento (2) es para dar formato legible al JSON
     fs.writeFileSync(dataPath, updatedContent);
 
-    res.sendStatus(200);
-
+    res.sendStatus(201);
 });
 
 module.exports = router;

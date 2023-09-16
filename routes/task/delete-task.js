@@ -16,8 +16,7 @@ router.delete('/:idTask', function(req, res) {
     }
     const updatedContent = JSON.stringify(data, null, 2); // El tercer argumento (2) es para dar formato legible al JSON
     fs.writeFileSync(dataPath, updatedContent);
-    res.send({tasks:encontrado});
-
+    res.sendStatus(204);
 });
 
 module.exports = router;
