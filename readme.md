@@ -34,4 +34,4 @@ Esta es una simple aplicación de lista de tareas pendientes que te permite agre
 
 ## to do
 * ~~Agregar Update / Put~~
-* Agregar pruebas unitarias para cada función del controlador
+* ~~Agregar pruebas unitarias para cada función del controlador~~
