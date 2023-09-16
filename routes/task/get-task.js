@@ -8,7 +8,6 @@ router.get('/', function(req, res) {
     const fileContent = fs.readFileSync(dataPath, 'utf-8');
     const data = JSON.parse(fileContent).filter((task) => !task.delete);
     res.send({tasks:data});
-
 });
 
 module.exports = router;

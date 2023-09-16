@@ -14,8 +14,12 @@ app.use('/api/v1/health', healthRouter);
 app.use('/api/v1/task', taskRouter);
 
 
-app.listen(PORT, () => {
-  console.log(`Server is running on ${PORT}`);
-  const endpoints = listEndpoints(app);
-  console.table(endpoints);
-});
+if (process.env.NODE_ENV !== 'test') {
+  server = app.listen(PORT, () => {
+    console.log(`Server is running on ${PORT}`);
+    const endpoints = listEndpoints(app);
+    console.table(endpoints);
+  });
+}
+
+module.exports = app;

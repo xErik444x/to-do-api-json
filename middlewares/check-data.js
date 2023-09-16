@@ -31,10 +31,9 @@ const checkIfJsonExists = (req, res, next) => {
  */
 const checkIfTaskNameExists = (req, res, next) => {
     const dataPath = path.join(__dirname, '../data/tasks.json');
-
+    
     fs.readFile(dataPath, (err, data) => {
         if(err){
-            console.log(`🐧 -> file: check-data.js -> fs.readFile -> err:`, err)
             return res.status(401).send({message: "No tasks found"})
         }
         const tasks = JSON.parse(data);
