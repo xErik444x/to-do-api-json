@@ -25,4 +25,5 @@ Esta es una simple aplicación de lista de tareas pendientes que te permite agre
 | '/api/v1/task/:taskId' |   [ 'DELETE' ]    |
 
 ## to do
+* Agregar Update / Put
 * Agregar pruebas unitarias para cada función del controlador
