@@ -17,9 +17,9 @@ const checkIfJsonExists = (req, res, next) => {
             }
             return next();
         });
-    }else{
-        return next();
+        return;
     }
+    return next();
 }
 
 /**
@@ -36,9 +36,6 @@ const checkIfTaskNameExists = (req, res, next) => {
         if(err){
             console.log(`🐧 -> file: check-data.js -> fs.readFile -> err:`, err)
             return res.status(401).send({message: "No tasks found"})
-        }
-        if(data){
-            
         }
         return next();
     });
