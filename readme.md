@@ -9,6 +9,8 @@ Esta es una simple aplicación de lista de tareas pendientes que te permite agre
 
 - **Eliminar Tarea:** Si has completado una tarea o deseas eliminarla por cualquier motivo, puedes hacerlo proporcionando el identificador de la tarea.
 
+- **Actualizar Tarea:** Puedes cambiar nombre y descripción de cada tarea por su id.
+
 ## Uso
 
 1. Clona este repositorio en tu máquina local.
