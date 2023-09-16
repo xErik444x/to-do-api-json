@@ -37,6 +37,13 @@ const checkIfTaskNameExists = (req, res, next) => {
             console.log(`🐧 -> file: check-data.js -> fs.readFile -> err:`, err)
             return res.status(401).send({message: "No tasks found"})
         }
+        const tasks = JSON.parse(data);
+        const filterTasks = tasks.filter((task) => !task.delete)
+        const duplicateName = filterTasks.find(task => task.name.toLowerCase() === req.body.name.toLowerCase());
+
+        if (duplicateName) {
+        return res.status(400).send({ message: "Duplicate task name" });
+        }
         return next();
     });
 }
