@@ -22,8 +22,16 @@ Esta es una simple aplicación de lista de tareas pendientes que te permite agre
 |---------------------- | ----------------- |
 |   '/api/v1/health'    |     [ 'GET' ]     |
 |    '/api/v1/task'     | [ 'GET', 'POST' ] |
-| '/api/v1/task/:taskId' |   [ 'DELETE' ]    |
+| '/api/v1/task/:taskId' |  [ 'PUT', 'DELETE' ]  |
+
+## body request Post & Put
+```
+{
+    "name": "string",
+    "description": "string"
+}
+```
 
 ## to do
-* Agregar Update / Put
+* ~~Agregar Update / Put~~
 * Agregar pruebas unitarias para cada función del controlador
