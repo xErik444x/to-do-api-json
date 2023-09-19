@@ -52,7 +52,7 @@ const {
         callback(null, '[]');
       });
       const next = jest.fn();
-      const req = { body: { name: 'new-task' } };
+      const req = { body: { name: 'new-task-v3'}, user:{username:"Erik"} };
       const res = { status: jest.fn().mockReturnThis(), send: jest.fn() };
   
       // Llama a la función
@@ -68,11 +68,11 @@ const {
     it('should return a 400 status if task name already exists', () => {
       const readFileMock = jest.spyOn(fs, 'readFile').mockImplementation((path, callback) => {
         // Simula un archivo con una tarea existente
-        const tasks = [{ name: 'existing-task' }];
+        const tasks = [{ name: 'existing-task', user:"Erik" }];
         callback(null, JSON.stringify(tasks));
       });
       const next = jest.fn();
-      const req = { body: { name: 'existing-task' } };
+      const req = { body: { name: 'existing-task' }, user:{username:"Erik"} };
       const res = { status: jest.fn().mockReturnThis(), send: jest.fn() };
   
       // Llama a la función
