@@ -24,11 +24,10 @@ Esta es una simple aplicación de lista de tareas pendientes que te permite agre
 ## Rutas
 |         path          |      methods      |
 |---------------------- | ----------------- |
-|   '/api/v1/health'    |     [ 'GET' ]     |
-|    '/api/v1/task'     | [ 'GET', 'POST' ] |
-| '/api/v1/task/:taskId' |  [ 'PUT', 'DELETE' ]  |
-| '/api/v1/user/login'  │     [ 'POST' ]  |
-
+|   '/api/v1/health'   |     [ 'GET' ]     |
+|    '/api/v1/task'    | [ 'GET', 'POST' ] |
+| '/api/v1/task/:taskId'|  [ 'PUT', 'DELETE' ] |
+| '/api/v1/user/login'  |     [ 'POST' ]    |
 ## Autorizacion:
 primero pegar al login, eso devuelve el jwt a usar en bearer.
 
