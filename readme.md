@@ -22,36 +22,42 @@ Esta es una simple aplicación de lista de tareas pendientes que te permite agre
 4. Inicialo con: npm run start
 
 ## Rutas
-|         path          |      methods      |
-|---------------------- | ----------------- |
-|   '/api/v1/health'   |     [ 'GET' ]     |
-|    '/api/v1/task'    | [ 'GET', 'POST' ] |
-| '/api/v1/task/:taskId'|  [ 'PUT', 'DELETE' ] |
-| '/api/v1/user/login'  |     [ 'POST' ]    |
-## Autorizacion:
-primero pegar al login, eso devuelve el jwt a usar en bearer.
 
-## body /api/v1/user/login
-```
+| Ruta                   | Métodos            |
+|------------------------|--------------------|
+| `/api/v1/health`       | `GET`              |
+| `/api/v1/task`         | `GET`, `POST`      |
+| `/api/v1/task/:taskId`| `PUT`, `DELETE`    |
+| `/api/v1/user/login`   | `POST`             |
+
+### Autorización:
+
+Primero, realiza una solicitud a `/api/v1/user/login` para obtener un token JWT. Utiliza este token como encabezado `Bearer` en las solicitudes posteriores.
+
+#### Cuerpo de solicitud para `/api/v1/user/login`
+```json
 {
     "username": "name"
 }
-res:
+```
+Respuesta:
+```json
 {
     "user": "name",
     "token": "eyJhbGci..."
 }
 ```
 
-## body request Post & Put
-```
+#### Cuerpo de solicitud para `POST` y `PUT`
+
+```json
 {
     "name": "string",
     "description": "string"
 }
 ```
 
-## to do
-* ~~Agregar Update / Put~~
-* ~~Agregar pruebas unitarias para cada función del controlador~~
-* ~~Agregar el uso de un jwt de manera simple~~
+## Pendientes
+- [x] Agregar funcionalidad de Actualización (`PUT`)
+- [x] Incluir pruebas unitarias para cada función del controlador
+- [x] Implementar el uso de JWT de manera sencilla
