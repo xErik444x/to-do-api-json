@@ -9,7 +9,8 @@ router.delete('/:idTask', function(req, res) {
     const dataPath = path.join(__dirname, '../../data/tasks.json');
     const fileContent = fs.readFileSync(dataPath, 'utf-8');
     const data = JSON.parse(fileContent);
-    const encontrado = data.findIndex((task) => task.delete ? false : task.id === idTask)
+    const user = req.user.username;
+    const encontrado = data.findIndex((task) => task.delete ? false : task.id === idTask && task.user == user)
     if(encontrado === -1){
         return  res.sendStatus(404);
     }

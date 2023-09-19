@@ -6,7 +6,8 @@ const path = require("path");
 router.get('/', function(req, res) {
     const dataPath = path.join(__dirname, '../../data/tasks.json');
     const fileContent = fs.readFileSync(dataPath, 'utf-8');
-    const data = JSON.parse(fileContent).filter((task) => !task.delete);
+    const user = req.user.username;
+    const data = JSON.parse(fileContent).filter((task) => !task.delete && task.user == user);
     res.send({tasks:data});
 });
 

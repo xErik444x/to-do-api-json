@@ -36,8 +36,9 @@ const checkIfTaskNameExists = (req, res, next) => {
         if(err){
             return res.status(401).send({message: "No tasks found"})
         }
+        const user = req.user.username;
         const tasks = JSON.parse(data);
-        const filterTasks = tasks.filter((task) => !task.delete)
+        const filterTasks = tasks.filter((task) => !task.delete && task.user == user)
         const duplicateName = filterTasks.find(task => task.name.toLowerCase() === req.body.name.toLowerCase());
 
         if (duplicateName) {

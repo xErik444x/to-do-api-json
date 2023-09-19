@@ -17,7 +17,9 @@ Esta es una simple aplicación de lista de tareas pendientes que te permite agre
 
 2. Instala las dependencias utilizando npm: npm i
 
-3. Inicialo con: npm run start
+3. En el .env se encuentra el token para validar el jwt, este se genera mediante: `require('crypto').randomBytes(64).toString('hex')`
+
+4. Inicialo con: npm run start
 
 ## Rutas
 |         path          |      methods      |
@@ -25,6 +27,11 @@ Esta es una simple aplicación de lista de tareas pendientes que te permite agre
 |   '/api/v1/health'    |     [ 'GET' ]     |
 |    '/api/v1/task'     | [ 'GET', 'POST' ] |
 | '/api/v1/task/:taskId' |  [ 'PUT', 'DELETE' ]  |
+| '/api/v1/user/login'  │     [ 'POST' ]  |
+
+## Autorizacion:
+primero pegar al login, eso devuelve el jwt a usar en bearer.
+
 
 ## body request Post & Put
 ```
@@ -37,4 +44,4 @@ Esta es una simple aplicación de lista de tareas pendientes que te permite agre
 ## to do
 * ~~Agregar Update / Put~~
 * ~~Agregar pruebas unitarias para cada función del controlador~~
-* Agregar el uso de un jwt de manera simple
+* ~~Agregar el uso de un jwt de manera simple~~

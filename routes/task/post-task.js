@@ -8,11 +8,12 @@ const { randomUUID } = require('crypto');
 router.use(checkBodyPost);
 router.use(checkIfTaskNameExists);
 router.post('/', function(req, res) {
+    const user = req.user.username;
     const dataPath = path.join(__dirname, '../../data/tasks.json');
     const fileContent = fs.readFileSync(dataPath, 'utf-8');
     const data = JSON.parse(fileContent);
     const newObject = req.body;
-    data.push({...newObject, id:randomUUID()});
+    data.push({...newObject, id:randomUUID(), user});
     const updatedContent = JSON.stringify(data, null, 2); // El tercer argumento (2) es para dar formato legible al JSON
     fs.writeFileSync(dataPath, updatedContent);
 
