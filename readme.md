@@ -31,6 +31,17 @@ Esta es una simple aplicación de lista de tareas pendientes que te permite agre
 ## Autorizacion:
 primero pegar al login, eso devuelve el jwt a usar en bearer.
 
+## body /api/v1/user/login
+```
+{
+    "username": "name"
+}
+res:
+{
+    "user": "name",
+    "token": "eyJhbGci..."
+}
+```
 
 ## body request Post & Put
 ```

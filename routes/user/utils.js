@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
  * @returns 
  */
 const generateAccessToken = (username) => {
-    return jwt.sign(username, process.env.JWT_VALIDATION_TOKEN, { expiresIn: '99991800h' });
+    return jwt.sign(username, process.env.JWT_VALIDATION_TOKEN, { expiresIn: '1800s' });
 }
 
 module.exports = {
