@@ -5,6 +5,7 @@ require("dotenv").config({path:"./env/dev.env"})
 const healthRouter = require('./routes/health/health');
 const taskRouter = require('./routes/task/task');
 const userRouter = require('./routes/user/user');
+const docsRouter = require('./routes/docs/docs');
 
 const app = express();
 const PORT = 3000;
@@ -15,7 +16,7 @@ app.use(express.json());
 app.use('/api/v1/health', healthRouter);
 app.use('/api/v1/task', taskRouter);
 app.use('/api/v1/user', userRouter);
-
+app.use('/api/v1/docs', docsRouter);
 
 if (process.env.NODE_ENV !== 'test') {
   server = app.listen(PORT, () => {

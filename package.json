@@ -17,9 +17,13 @@
     "express-list-endpoints": "^6.0.0",
     "jsonwebtoken": "^9.0.2",
     "nodemon": "^3.0.1",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.3",
+    "swagger-ui-express": "^5.0.0"
   },
   "volta": {
     "node": "20.6.1"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.23.6"
   }
 }

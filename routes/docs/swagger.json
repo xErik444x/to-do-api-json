@@ -1,0 +1,206 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Lista de Tareas Pendientes API",
+    "description": "Una API para gestionar una lista de tareas pendientes.",
+    "version": "1.0"
+  },
+  "basePath": "/api/v1",
+  "schemes": ["http"],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Verificar el estado de la API",
+        "responses": {
+          "200": {
+            "description": "La API está en funcionamiento"
+          }
+        }
+      }
+    },
+    "/task": {
+      "get": {
+        "summary": "Obtener todas las tareas",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de todas las tareas pendientes",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Task"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Agregar una nueva tarea",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "task",
+            "in": "body",
+            "description": "Datos de la nueva tarea",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postTask"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Tarea agregada exitosamente"
+          }
+        }
+      }
+    },
+    "/task/{taskId}": {
+      "put": {
+        "summary": "Actualizar una tarea por ID",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "type": "string",
+            "description": "Identificador único de la tarea a actualizar",
+            "required": true
+          },
+          {
+            "name": "task",
+            "in": "body",
+            "description": "Nuevos datos para la tarea",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postTask"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tarea actualizada exitosamente"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Eliminar una tarea por ID",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "type": "string",
+            "description": "Identificador único de la tarea a eliminar",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Tarea eliminada exitosamente"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "summary": "Iniciar sesión y obtener un token JWT",
+        "parameters": [
+          {
+            "name": "credentials",
+            "in": "body",
+            "description": "Credenciales de inicio de sesión",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "description": "Nombre de usuario"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Inicio de sesión exitoso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "string",
+                  "description": "Nombre de usuario"
+                },
+                "token": {
+                  "type": "string",
+                  "description": "Token JWT para autenticación"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Task": {
+      "type": "object",
+      "properties": {
+        "taskId": {
+          "type": "string",
+          "description": "Identificador único de la tarea"
+        },
+        "name": {
+          "type": "string",
+          "description": "Nombre de la tarea"
+        },
+        "description": {
+          "type": "string",
+          "description": "Descripción de la tarea"
+        },
+        "user": {
+          "type": "string",
+          "description": "nombre del creador de la tarea"
+        }
+      }
+    },
+    "postTask": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Nombre de la tarea"
+        },
+        "description": {
+          "type": "string",
+          "description": "Descripción de la tarea"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "bearerAuth": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "Value: Bearer {JWT TOKEN}"
+    }
+  }
+}
