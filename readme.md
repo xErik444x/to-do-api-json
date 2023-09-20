@@ -29,7 +29,7 @@ Esta es una simple aplicación de lista de tareas pendientes que te permite agre
 | `/api/v1/task`         | `GET`, `POST`      |
 | `/api/v1/task/:taskId` | `PUT`, `DELETE`    |
 | `/api/v1/user/login`   | `POST`             |
-| `'/api/v1/docs'`       │ `GET`              |
+| `'/api/v1/docs'`       | `GET`              |
 
 
 ## Autorización:
