@@ -63,3 +63,6 @@ Respuesta:
 - [x] Agregar funcionalidad de Actualización (`PUT`)
 - [x] Incluir pruebas unitarias para cada función del controlador
 - [x] Implementar el uso de JWT de manera sencilla
+
+## Url para testing:
+https://to-do-api-json.onrender.com/api/v1/docs/
