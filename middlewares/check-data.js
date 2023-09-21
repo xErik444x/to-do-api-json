@@ -8,9 +8,14 @@ const path = require("path")
  * @returns 
  */
 const checkIfJsonExists = (req, res, next) => {
-    const dataPath = path.join(__dirname, '../data/tasks.json');
-    const dataExists = fs.existsSync(dataPath)
-    if(!dataExists){
+    const dataFolderPath = path.join(__dirname, '../data');
+    const dataPath = path.join(dataFolderPath, 'tasks.json');
+    
+    createFolderIfNotExists(dataFolderPath);
+
+    const dataExists = fs.existsSync(dataPath);
+
+    if (!dataExists) {
         fs.writeFile(dataPath, "[]", err => {
             if (err) {
                 console.error(err);
@@ -20,7 +25,7 @@ const checkIfJsonExists = (req, res, next) => {
         return;
     }
     return next();
-}
+};
 
 /**
  * 
@@ -68,6 +73,17 @@ const checkBodyPost = (req, res, next) => {
     } 
     return next();
 }
+const createFolderIfNotExists = (folderPath) => {
+    if (!fs.existsSync(folderPath)) {
+        try {
+            fs.mkdirSync(folderPath);
+        } catch (err) {
+            console.error('Error al crear la carpeta:', err);
+        }
+    }
+};
+
+
 module.exports = {
     checkIfJsonExists,
     checkIfTaskNameExists: checkIfTaskNameExists,
