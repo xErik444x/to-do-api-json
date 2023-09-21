@@ -6,7 +6,7 @@
     "version": "1.0"
   },
   "basePath": "/api/v1",
-  "schemes": ["http","https"],
+  "schemes": ["https", "http"],
   "paths": {
     "/health": {
       "get": {
